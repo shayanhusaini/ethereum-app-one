@@ -1,0 +1,50 @@
+Ethereum is a network of computers which are used to transfer money and store data
+Node is a machine that runs ethereum client (Laptop, Desktop etc.)
+Each node contains a full and seperate copy of the blockchain
+The blockchain is a database that stores a record of every transaction that has ever taken place
+In ethereum network one account can be used in multiple networks
+Transaction is an record when account send an amount to another account
+Transaction object contains following properties:
+	nonce: How many times the sender (platform or app) has sent a transaction
+	to: Address of account money is going to
+	value: Amount of ether to send to the target address
+	gasPrice: Amount of ether the sender is willing to pay per unit gas to get this transaction processed
+	startGas/gasLimit: Units of gas that this transaction can consume
+	v: Cryptographic pieces of data that can be used to generate the senders account address. Generated from the senders private key
+	r: as above
+	s: as above
+Transaction is sent to one specific node and that node is communicating with rest of the nodes in the network 
+A node contains the entire set of blockchain
+There are times when multiple transactions are performed at once. In such case all transactions are locked in a single block then a node runs some validation logic on this block
+Running a validation logic on a block is called mining
+In a blockchain if we have to change anything within the block we have to remine that block and all the sub sequent blocks in the chain
+A smart contract is an account controlled by code
+A contract account has following properties:
+	balance: Amount of ether this account owns
+	storage: Data storage for this contract
+	code: Raw machine code for this contract
+External account are anything that human being owns and they live in their own universe. They can be accessed by multiple networks
+Contract accounts are specific to individual network and cannot be accessed by other networks
+Contract definition is written in solidity programming language then solidity compiler compiles the code and make it ready for deployment on network also creates an ABI file (Application Binary Interface) which is used with javascript to interact with contract
+Transaction object for external account to create contract transaction contains following properties:
+	nonce: How many times the sender (platform or app) has sent a transaction
+	to: - (in contract account transaction it must be left blank)
+	data: Compiled bytecode of the contract
+	value: Amount of Wei to send to the target address
+	gasPrice: Amount of Wei the sender is willing to pay per unit gas to get this transaction processed
+	startGas/gasLimit: Units of gas that this transaction can consume
+	v: Cryptographic pieces of data that can be used to generate the senders account address. Generated from the senders private key
+	r: as above
+	s: as above
+To change anything inside a blockchain we have to submit a transaction
+There are two ways of running contract function:
+	Calling a Function -> Cannot modify the contracts data, Can return data, Runs instantly, Free to do
+	Sending a transaction to a Function -> Can modify a contracts data, Takes time to execute, Returns the transaction hash, Costs money
+Wei is just another unit of ether just like 1 Dollar = 100 Cents. 1 Ether  = 1,000,000,000,000,000,000 Wei
+Wei cannot used be in fractional unit
+Gas is the amount of money that we have to pay for our contract to run on network. A similar concept like paying a web hosting service to run our code.
+If the gasLimit is reached between the execution of code. The code execution is stopped in there.
+Every operation in a contract cost some amount of gas. The chart is available online for gas consumption per operation
+Lets consider an example of twitter. So every user who tweet is modifying data in blockchain so they have to pay some amount of gas for every operation e.g. Posting a tweet, Retweet, Like etc. So thats kind a limit on type of application that can be built on ethereum
+A concept of Mnemonic phrases introduced because user cannot remember their account id public key and private keys as they are very long and hexadecimal digits.
+A mnemonic phrase is bind with the series of accounts.
